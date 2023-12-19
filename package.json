@@ -1,0 +1,12 @@
+{
+  "name": "local-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Trond Albinussen <trondal.albinussen@toll.no>",
+  "license": "ISC"
+}

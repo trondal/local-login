@@ -12,9 +12,9 @@ app.use(EJSLayout);
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     name: env.SESSION_NAME,
-    secret: env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
+    secret: env.SESSION_SECRET, // a secret string used to sign the session ID cookie
+    resave: false, // don't save session if unmodified
+    saveUninitialized: false, // don't create session until something stored
 }))
 
 app.get('/', (req, res) => {

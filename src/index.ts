@@ -1,15 +1,21 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
 import EJSLayout from 'express-ejs-layouts';
-
+import session from 'express-session';
 import env from './env';
+
 
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
-
 app.use(EJSLayout);
-
+app.use(express.urlencoded({ extended: true }));
+app.use(session({
+    name: env.SESSION_NAME,
+    secret: env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+}))
 
 app.get('/', (req, res) => {
     res.render('home');
@@ -17,6 +23,10 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.render('login');
+})
+
+app.post('/login', (req, res) => {
+    res.redirect('login');
 })
 
 app.get('/register', (req, res) => {

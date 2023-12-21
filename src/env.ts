@@ -4,7 +4,10 @@ import z from 'zod';
 dotenv.config();
 
 const schema = z.object({
-    PORT: z.string()
+    PORT: z.coerce.number(),
+    SESSION_SECRET: z.string(),
+    SESSION_NAME: z.string(),
+    MONGO_DB_URI: z.string()
 });
 
 const parsed = schema.safeParse(process.env);

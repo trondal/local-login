@@ -18,4 +18,4 @@ if (!parsed.success) {
 
 type EnvType = z.infer<typeof schema>;
 const env: EnvType = parsed.data;
-export default env;
+export { env };

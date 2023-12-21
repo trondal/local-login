@@ -1,9 +1,8 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import path from 'path';
 import EJSLayout from 'express-ejs-layouts';
 import session from 'express-session';
 import env from './env';
-
 
 const app = express();
 app.set('view engine', 'ejs');
